@@ -22,7 +22,7 @@ export default function About() {
           {(p) => (
             <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
               <div className="space-y-3">
-                <Avatar src={p.avatar} name={p.full_name} className="aspect-square w-full max-w-[320px] rounded-lg border border-line" />
+                <Avatar src={p.avatar_url || p.avatar} name={p.full_name} className="aspect-square w-full max-w-[320px] rounded-lg border border-line" />
                 {p.location && <p className="text-muted">{p.location}</p>}
                 <SocialIcons profile={p} />
                 {p.resume && <Button href={p.resume} target="_blank" rel="noopener noreferrer" download><FiDownload aria-hidden="true" /> Download Resume</Button>}

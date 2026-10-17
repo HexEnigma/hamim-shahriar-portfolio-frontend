@@ -26,7 +26,9 @@ export default function ProjectDetail() {
         {(p) => (
           <article className="mt-2 max-w-[800px]">
             <div className="aspect-video overflow-hidden rounded-lg border border-line bg-surface2">
-              {p.cover_image && <img src={p.cover_image} alt={`Screenshot of ${p.title}`} className="h-full w-full object-cover" />}
+              {(p.cover_image_url || p.cover_image) && (
+                <img src={p.cover_image_url || p.cover_image} alt={`Screenshot of ${p.title}`} className="h-full w-full object-cover" />
+              )}
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-1">
               <Badge tone={p.status === "IN_PROGRESS" ? "warning" : "accent"}>{PROJECT_STATUS_LABELS[p.status]}</Badge>

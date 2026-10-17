@@ -8,7 +8,9 @@ export default function ProjectCard({ project: p }) {
   return (
     <Card as="article" hover className="flex h-full flex-col overflow-hidden">
       <div className="aspect-video bg-surface2">
-        {p.cover_image && <img src={p.cover_image} alt={`Screenshot of ${p.title}`} loading="lazy" className="h-full w-full object-cover" />}
+        {(p.cover_image_url || p.cover_image) && (
+          <img src={p.cover_image_url || p.cover_image} alt={`Screenshot of ${p.title}`} loading="lazy" className="h-full w-full object-cover" />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-3">
         <div className="flex flex-wrap gap-1">

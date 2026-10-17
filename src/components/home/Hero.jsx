@@ -45,7 +45,7 @@ function HeroContent({ p }) {
 
       <div className="relative mx-auto aspect-square w-full max-w-[360px]">
         <div className="absolute inset-0 translate-x-2 translate-y-2 rounded-lg border border-accent" aria-hidden="true" />
-        <Avatar src={p.avatar} name={p.full_name} className="relative h-full w-full rounded-lg border border-line" />
+        <Avatar src={p.avatar_url || p.avatar} name={p.full_name} className="relative h-full w-full rounded-lg border border-line" />
       </div>
     </div>
   );

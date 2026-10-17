@@ -22,7 +22,9 @@ function Article({ post: p }) {
   return (
     <article className="mx-auto max-w-[800px]">
       <div className="aspect-video overflow-hidden rounded-lg border border-line bg-surface2">
-        {p.cover_image && <img src={p.cover_image} alt={`Cover image for ${p.title}`} className="h-full w-full object-cover" />}
+        {(p.cover_image_url || p.cover_image) && (
+          <img src={p.cover_image_url || p.cover_image} alt={`Cover image for ${p.title}`} className="h-full w-full object-cover" />
+        )}
       </div>
       <div className="mt-3 flex flex-wrap items-center gap-1">
         {p.category && <Link to={`/blog?category=${p.category.slug}`}><Badge tone="accent">{p.category.name}</Badge></Link>}
