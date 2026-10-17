@@ -1,4 +1,4 @@
-import Hero from "@/components/home/Hero";
+import Hero from "@/components/home/Hero.jsx";
 import AboutPreview from "@/components/home/AboutPreview";
 import SkillGrid from "@/components/home/SkillGrid";
 import ExperienceTimeline from "@/components/home/ExperienceTimeline";
