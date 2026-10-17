@@ -1,0 +1,44 @@
+:root, :root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #01100f;  --surface: #061a19;  --surface-2: #0a2321;  --surface-glass: rgba(6, 26, 25, 0.82);
+  --border: #154039;  --text: #e6f2f0;  --text-muted: #96b3ae;
+  --accent: #2dd4bf;  --accent-hover: #5eead4;  --on-accent: #03120f;
+  --success: #4ade80; --warning: #fbbf24; --danger: #f87171;
+  --grid-line: rgba(45, 212, 191, 0.07);
+  --glow-a: rgba(20, 110, 105, 0.35);
+  --glow-b: rgba(15, 120, 108, 0.30);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.45);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.5);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2f8f7;  --surface: #ffffff;  --surface-2: #e6f0ee;  --surface-glass: rgba(255, 255, 255, 0.88);
+  --border: #cbdcd9;  --text: #0b1b1a;  --text-muted: #466460;
+  --accent: #0f766e;  --accent-hover: #115e59;  --on-accent: #ffffff;
+  --success: #15803d; --warning: #b45309; --danger: #b91c1c;
+  --grid-line: rgba(15, 118, 110, 0.10);
+  --glow-a: rgba(15, 118, 110, 0.12);
+  --glow-b: rgba(15, 118, 110, 0.10);
+  --shadow-sm: 0 1px 2px rgba(11,27,26,.08);
+  --shadow-md: 0 8px 24px rgba(11,27,26,.10);
+  --shadow-lg: 0 16px 48px rgba(11,27,26,.14);
+}
+:root {
+  --font-heading: "JetBrains Mono", ui-monospace, monospace;
+  --font-body: "Inter", system-ui, sans-serif;
+  --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 20px;
+  --text-xl: 24px; --text-2xl: 32px; --text-3xl: 48px;
+  --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px;
+  --space-6: 48px; --space-8: 64px; --space-12: 96px;
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-full: 999px;
+  --duration-fast: 150ms; --duration-base: 200ms; --duration-slow: 250ms;
+  --container: 1200px; --section-y: var(--space-12);
+}
+@media (max-width: 767px) { :root { --section-y: var(--space-6); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
