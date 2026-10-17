@@ -1,5 +1,7 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import PublicLayout from "@/components/layout/PublicLayout";
+import { Spinner } from "@/components/ui/Skeleton";
 import ProtectedRoute from "./ProtectedRoute";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -10,19 +12,8 @@ import BlogDetail from "@/pages/BlogDetail";
 import Contact from "@/pages/Contact";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/NotFound";
-import Button from "@/components/ui/Button";
-import { useAuth } from "@/context/AuthContext";
 
-function DashboardPlaceholder() {
-  const { user, logout } = useAuth();
-  return (
-    <div className="p-6">
-      <h1>Dashboard (placeholder)</h1>
-      <p className="mt-1 text-muted">Signed in as {user?.username}. Replaced in Phase 14.</p>
-      <Button className="mt-3" variant="secondary" onClick={logout}>Log out</Button>
-    </div>
-  );
-}
+const DashboardRoutes = lazy(() => import("./DashboardRoutes"));
 
 export default function AppRoutes() {
   return (
@@ -39,7 +30,7 @@ export default function AppRoutes() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route element={<ProtectedRoute />}>
-        <Route path="/dashboard" element={<DashboardPlaceholder />} />
+        <Route path="/dashboard/*" element={<Suspense fallback={<Spinner fullPage />}><DashboardRoutes /></Suspense>} />
       </Route>
     </Routes>
   );

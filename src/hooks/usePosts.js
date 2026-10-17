@@ -5,7 +5,13 @@ import { cleanParams } from "@/utils/text";
 export const usePosts = (params = {}) =>
   useQuery({ queryKey: ["posts", params], queryFn: () => postsApi.list(cleanParams(params)), placeholderData: keepPreviousData });
 export const usePost = (slug) =>
-  useQuery({ queryKey: ["post", slug], queryFn: () => postsApi.get(slug), retry: false, staleTime: 5 * 60_000 });
+  useQuery({ 
+    queryKey: ["post", slug], 
+    queryFn: () => postsApi.get(slug), 
+    enabled: Boolean(slug),
+    retry: false, 
+    staleTime: 5 * 60_000 
+  });
 export const useCategories = () => useQuery({ queryKey: ["categories"], queryFn: () => categoriesApi.list() });
 export const useTags = () => useQuery({ queryKey: ["tags"], queryFn: () => tagsApi.list() });
 export const useComments = (slug, page = 1) =>
