@@ -27,6 +27,7 @@ function PostForm({ post }) {
   const { register, control, handleSubmit, setError, formState: { errors } } = useForm({
     defaultValues: {
       title: post?.title ?? "", excerpt: post?.excerpt ?? "", content: post?.content ?? "",
+      cover_image_url: post?.cover_image_url ?? "",
       category: post?.category ? String(post.category.id) : "", tags: post?.tags.map((t) => t.id) ?? [],
       status: post?.status ?? "DRAFT", is_featured: post?.is_featured ?? false,
     },
@@ -75,6 +76,8 @@ function PostForm({ post }) {
           {errors.tags && <p role="alert" className="mt-1 text-sm text-danger">{errors.tags.message}</p>}
         </fieldset>
       )} />
+            {/* ADD THIS INPUT RIGHT ABOVE IMAGE UPLOADER */}
+      <Input label="Cover Image URL (optional)" type="url" {...register("cover_image_url")} />
       <ImageUploader label="Cover image" currentUrl={post?.cover_image} file={file} onChange={setFile} error={errors.cover_image?.message} />
       <div>
         <div className="mb-1 flex items-center justify-between">

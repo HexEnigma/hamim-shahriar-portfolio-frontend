@@ -18,6 +18,7 @@ import { applyServerErrors, getErrorMessage } from "@/utils/validators";
 const FIELDS = [
   { name: "title", label: "Title *", rules: { required: "Title is required." } },
   { name: "summary", label: "Summary * (max 200 characters)", rules: { required: "Summary is required.", maxLength: { value: 200, message: "Summary must be 200 characters or fewer." } } },
+  { name: "cover_image_url", label: "Cover Image URL (optional)", type: "url" },
   { name: "category", label: "Category", type: "select", options: PROJECT_CATEGORIES },
   { name: "status", label: "Status", type: "select", options: [["COMPLETED", "Completed"], ["IN_PROGRESS", "In progress"]] },
   { name: "live_url", label: "Live URL", type: "url", hint: "Provide a live URL or a GitHub URL (at least one)." },

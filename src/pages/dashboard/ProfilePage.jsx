@@ -18,6 +18,7 @@ const FIELDS = [
   { name: "full_name", label: "Full name *", rules: { required: "Full name is required." } },
   { name: "headline", label: "Headline *", rules: { required: "Headline is required." } },
   { name: "bio", label: "Bio (4–8 lines, your own words)", type: "textarea" },
+  { name: "avatar_url", label: "Avatar Image URL (optional)", type: "url" },
   { name: "email", label: "Public email", type: "email" }, { name: "phone", label: "Phone" }, { name: "location", label: "Location" },
   { name: "github_url", label: "GitHub URL", type: "url" }, { name: "linkedin_url", label: "LinkedIn URL", type: "url" },
   { name: "x_url", label: "X URL", type: "url" }, { name: "website_url", label: "Website URL", type: "url" },
